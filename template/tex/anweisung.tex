@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{ngerman}
+\usepackage[tx]{sfmath}
+\usepackage{calc}
+\usepackage{lastpage}
+%\usepackage{ifthen}
+\usepackage{xifthen}
+\usepackage{multicol}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tgheros}
+\usepackage{intcalc}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+	left=25mm,right=25mm,%
+	bindingoffset=0mm, top=20mm,bottom=20mm}
+
+% pdf version to min 1.6
+\pdfminorversion=6
+
+\newcommand{\picpaths}{}
+\newcommand{\footerstring}{}
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+\newcommand{\mysection}[1]{
+	\begin{center}
+	{\large \textsc{#1}}
+	\vspace*{-0.5cm}
+	\\\linia\\
+	\vspace*{-0.5cm}
+	\end{center}
+}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+{1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+{{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+	\begin{center}
+	\vspace*{-0.5cm}
+	{\huge \textsc{\@title}}
+	\linia
+	\end{center}
+}
+\makeatother
+%%%
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\footerstring}
+\cfoot{}
+\rfoot{Seite \thepage{} von \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%
+% all section titles centered and bolded
+\usepackage{sectsty}
+\allsectionsfont{\centering\bfseries\large}
+%
+% add section label
+\renewcommand\thesection{}
+%
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{Zahlungs-/ Buchungsanweisung}
+\author{StuRa der TU Ilmenau}
+
+\vspace*{-2.0cm}
+\begin{figure}[h]
+\centering
+%\includegraphics[width=3cm]{stura2.pdf}
+\end{figure}
+
+\maketitle
+
+\vspace*{-0.5cm}
+
+\mysection{Allgemeine Angaben}
+
+\begin{enumerate}[label=\Roman*]
+\itemsep-2mm
+\item \textbf{Projekt ID}\hfill 
+\item \textbf{Projekt}\hfill 
+\item \textbf{Organisation} \hfill 
+\item \textbf{Rechtsgrundlage} \hfill 
+\item \textbf{Abrechnungs ID}\hfill 
+\item \textbf{Name Abrechnung} \hfill 
+\end{enumerate}
+
+\vspace*{2mm}
+\mysection{Zahlungsanweisung/ Einnahmevermerk}
+\begin{enumerate}[label=\Roman*,resume]
+\itemsep-2mm
+\item \textbf{Name Empfangsberechtigte/-r, Zahlungspflichtige/-r} \hfill %je nachdem, ob Einnahme oder Zahlung
+\item \textbf{Adresse} \hfill 
+\item \textbf{IBAN} \hfill 
+\item \textbf{Betrag} \hfill
+\vspace{0,5cm} 
+\item \textbf{Datum Zahlung/ Einnahme} \hfill %per Hand ggf. noch Linie einfügen
+\end{enumerate}
+
+\vspace{0,5cm}
+\parbox[b]{0.4\linewidth}{% size of the first signature box
+	\strut 
+	\textbf{Sachliche Richtigkeit} \\[1.25cm]% This 2cm is the space for the signature under the names
+	\hrule
+	\vspace{0.25cm}
+	%(\ifthenelse{\isempty \hv}{Haushaltsverantwortliche/r}{\hv})
+} 
+\hspace{0,5cm} % distance between the two signature blocks 
+\parbox[b]{0.4\linewidth}{% ...and the second one
+	\strut 
+	\textbf{Rechnerische Richtigkeit} \\[1.25cm]% This 2cm is the space for the signature under the names
+	\hrule 
+	\vspace{0.25cm}
+	%(\ifthenelse{\isempty \kv}{Kassenverantwortliche/r}{\kv})
+}
+\par\vspace{0,5cm} 
+
+\mysection{Buchungsanweisung}
+
+\begin{center}
+\begin{tabular}{rrrr}
+\textbf{Beleg} & \textbf{Betrag} & \textbf{Titel} & \textbf{Buchungsnummer}\\ % Buchungsnummer per Hand
+\end{tabular}
+\end{center}
+\vspace{1cm}
+\textbf{Angewiesen am:}\\\\ %per Hand ggf. noch Linie
+\textbf{Gebucht am:}\\ %per Hand ggf. noch Linie
+
+\vspace{0,5cm}
+\parbox[b]{0.4\linewidth}{% size of the first signature box
+	\strut 
+	\textbf{Sachliche Richtigkeit} \\[1.25cm]% This 2cm is the space for the signature under the names
+	\hrule
+	\vspace{0.25cm}
+	%(\ifthenelse{\isempty \hv}{Haushaltsverantwortliche/r}{\hv})
+} 
+\hspace{1cm} % distance between the two signature blocks 
+\parbox[b]{0.4\linewidth}{% ...and the second one
+	\strut 
+	\textbf{Rechnerische Richtigkeit} \\[1.25cm]% This 2cm is the space for the signature under the names
+	\hrule 
+	\vspace{0.25cm}
+	%(\ifthenelse{\isempty \kv}{Kassenverantwortliche/r}{\kv})
+}
+
+\end{document}
